@@ -1,0 +1,13 @@
+{
+    "displayName": "sample-assignment",
+    "appName": "sample-assignment",
+    "description": "sample-assignment",
+    "lastModified": "2026-05-25T16:22:19.269Z",
+    "imgSourcePath": "",
+    "version": "1.0.0",
+    "appType": "apiOnly",
+    "templateName": "blank",
+    "createDate": "2026-05-25T16:22:18.885Z",
+    "analyticsId": "fd49ef45-8b78-adb0-dcba-9e6adf1d67fc",
+    "createdStudioVersion": "9.3.0"
+}

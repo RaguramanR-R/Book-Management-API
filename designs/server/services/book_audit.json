@@ -1,0 +1,118 @@
+[
+    {
+        "id": "SSD_SERVICE_ID_sd_sBZMy9S2Rsi8LLTj",
+        "type": "tab",
+        "createdDate": "2026-05-30T12:30:57.617Z",
+        "label": "book_audit",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "book_audit",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_7sM96Rtqm7ri8byu",
+        "type": "Start",
+        "z": "SSD_SERVICE_ID_sd_sBZMy9S2Rsi8LLTj",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "insertaudit",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "operation",
+                "defaultValue": {
+                    "type": "str",
+                    "value": ""
+                },
+                "output": true
+            },
+            {
+                "key": "resourceId",
+                "defaultValue": {
+                    "type": "num",
+                    "value": ""
+                },
+                "output": true
+            },
+            {
+                "key": "userId",
+                "defaultValue": {
+                    "type": "str",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "insertaudit",
+        "category": "General",
+        "x": 160,
+        "y": 120,
+        "wires": [
+            [
+                "sd_JsFskjm5QaRVwb44"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "book_audit"
+    },
+    {
+        "id": "sd_JsFskjm5QaRVwb44",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_sBZMy9S2Rsi8LLTj",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "var operation  = bh.input.operation || \"\";\nvar resourceId = bh.input.resourceId || null;\n\nvar userId = bh.input.userId||null;\n\nbh.local.auditQuery =\n    \"INSERT INTO audit (operation, resourceId, userId, timestamp) VALUES (\" +\n    \"'\" + operation + \"', \" +\n     (resourceId ? \"'\" + resourceId + \"'\" : \"NULL\") + \", \" +\n    (userId ? \"'\" + userId + \"'\" : \"NULL\") + \", \" +\n    \"NOW()\" +\n    \")\";",
+        "functionName": "sd_JsFskjm5QaRVwb44",
+        "category": "Function",
+        "x": 325,
+        "y": 120,
+        "wires": [
+            [
+                "sd_9aBRo0OsfZmq9HhW"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "book_audit",
+        "generated": true
+    },
+    {
+        "id": "sd_9aBRo0OsfZmq9HhW",
+        "type": "ExecuteSql",
+        "z": "SSD_SERVICE_ID_sd_sBZMy9S2Rsi8LLTj",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "databaseConfig": "sd_YtNA2Urg6h79jqDJ",
+        "resultMap": {
+            "type": "bh.local",
+            "value": "auditResult"
+        },
+        "multipleQuery": "",
+        "singleQuery": {
+            "type": "bh.local",
+            "value": "auditQuery"
+        },
+        "inputs": 1,
+        "outputs": 1,
+        "params": [],
+        "dbType": "mysql",
+        "functionName": "sd_9aBRo0OsfZmq9HhW",
+        "category": "Storage",
+        "x": 505,
+        "y": 120,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "book_audit",
+        "generated": true
+    }
+]

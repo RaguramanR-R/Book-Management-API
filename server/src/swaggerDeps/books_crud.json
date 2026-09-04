@@ -1,0 +1,123 @@
+{
+    "/books": {
+        "get": {
+            "summary": "",
+            "description": "",
+            "consumes": [],
+            "produces": [],
+            "parameters": [],
+            "responses": {
+                "200": {
+                    "description": "A paginated list of books"
+                }
+            },
+            "tags": [
+                "books_crud"
+            ]
+        }
+    },
+    "/books/:id": {
+        "delete": {
+            "summary": "",
+            "description": "",
+            "consumes": [],
+            "produces": [],
+            "parameters": [],
+            "responses": {
+                "200": {
+                    "description": "Succesfully Deleted"
+                }
+            },
+            "tags": [
+                "books_crud"
+            ]
+        },
+        "put": {
+            "summary": "",
+            "description": "",
+            "consumes": [],
+            "produces": [],
+            "parameters": [],
+            "responses": {},
+            "tags": [
+                "books_crud"
+            ]
+        },
+        "get": {
+            "summary": "",
+            "description": "",
+            "consumes": [],
+            "produces": [],
+            "parameters": [],
+            "responses": {},
+            "tags": [
+                "books_crud"
+            ]
+        }
+    },
+    "/bookadd": {
+        "post": {
+            "summary": "",
+            "description": "",
+            "consumes": [],
+            "produces": [],
+            "parameters": [],
+            "responses": {},
+            "tags": [
+                "books_crud"
+            ]
+        }
+    },
+    "/book/exists": {
+        "get": {
+            "summary": "",
+            "description": "",
+            "consumes": [],
+            "produces": [],
+            "parameters": [],
+            "responses": {},
+            "tags": [
+                "books_crud"
+            ]
+        }
+    },
+    "/audits": {
+        "get": {
+            "summary": "",
+            "description": "",
+            "consumes": [],
+            "produces": [],
+            "parameters": [],
+            "responses": {},
+            "tags": [
+                "books_crud"
+            ]
+        }
+    },
+    "/book/:isbn": {
+        "get": {
+            "summary": "",
+            "description": "",
+            "consumes": [],
+            "produces": [],
+            "parameters": [],
+            "responses": {},
+            "tags": [
+                "books_crud"
+            ]
+        }
+    },
+    "/report/pdf": {
+        "get": {
+            "summary": "",
+            "description": "",
+            "consumes": [],
+            "produces": [],
+            "parameters": [],
+            "responses": {},
+            "tags": [
+                "books_crud"
+            ]
+        }
+    }
+}

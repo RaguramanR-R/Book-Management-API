@@ -1,0 +1,3201 @@
+[
+    {
+        "id": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "type": "tab",
+        "createdDate": "2026-05-25T16:23:48.417Z",
+        "label": "books_crud",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "books_crud",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_OX3oDtoZtlOU8STd",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "booklist",
+        "path": "/books",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "get",
+        "sequenceId": "IDSAuthroizedAPIs",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "useDataModel": false,
+        "dataModelIsArray": false,
+        "uploadFileOptions": "",
+        "erd": "",
+        "erdName": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": []
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "validateRequestUsingSwaggerDocs": false,
+        "category": "HTTP",
+        "x": 105,
+        "y": 40,
+        "wires": [
+            [
+                "sd_AJ19SPaIPTSN1bEY"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "books_crud",
+        "functionName": "sd_OX3oDtoZtlOU8STd"
+    },
+    {
+        "id": "sd_aVpzmGPULVqadZ6h",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "Book list http out",
+        "headers": {},
+        "responseBody": {
+            "type": "bh.local",
+            "value": "responseBody",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "num",
+            "value": 200,
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "swaggerResponse": {},
+        "responseMapping": {
+            "status": 200,
+            "obj": "bh.local.responseBody",
+            "send": "bh.local.responseBody"
+        },
+        "dataModelIsArray": false,
+        "cookies": [],
+        "inputs": 1,
+        "outputs": 0,
+        "erd": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "headers": [],
+            "produces": [],
+            "responses": [
+                {
+                    "key": "A paginated list of books",
+                    "value": "200",
+                    "rowId": "sd_gptvSq724kPT4fpe",
+                    "valid": true
+                }
+            ]
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "bookListHttpOut",
+        "category": "HTTP",
+        "x": 585,
+        "y": 40,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_OtkXNNpkEbIsKvQf",
+        "type": "ExecuteSql",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "booklist sql1",
+        "databaseConfig": "sd_YtNA2Urg6h79jqDJ",
+        "queryType": "",
+        "resultMap": {
+            "type": "bh.local",
+            "value": "countResult"
+        },
+        "multipleQuery": "",
+        "singleQuery": {
+            "type": "bh.local",
+            "value": "countQuery"
+        },
+        "inputs": 1,
+        "outputs": 1,
+        "params": [],
+        "paramMappingObj": {},
+        "dbType": "mysql",
+        "functionName": "booklistSql1",
+        "category": "Storage",
+        "x": 285,
+        "y": 40,
+        "wires": [
+            [
+                "sd_ZzZiRBlvoCs9g19Y"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_8OQBHm5ok5rDDvEU",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "book delete",
+        "path": "/books/:id",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "delete",
+        "sequenceId": "IDSAuthroizedAPIs",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "useDataModel": false,
+        "dataModelIsArray": false,
+        "uploadFileOptions": "",
+        "erd": "",
+        "erdName": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": []
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "validateRequestUsingSwaggerDocs": false,
+        "category": "HTTP",
+        "x": 65,
+        "y": 160,
+        "wires": [
+            [
+                "sd_Bp0JOMX1erZToap1"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "books_crud",
+        "functionName": "sd_8OQBHm5ok5rDDvEU"
+    },
+    {
+        "id": "sd_Qsj6fSrNM5gRBEp9",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "deletehttpout",
+        "headers": {},
+        "responseBody": {
+            "type": "bh.local",
+            "value": "response",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "num",
+            "value": 200,
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "swaggerResponse": {},
+        "responseMapping": {
+            "status": 200,
+            "obj": "bh.local.response",
+            "send": "bh.local.response"
+        },
+        "dataModelIsArray": false,
+        "cookies": [],
+        "inputs": 1,
+        "outputs": 0,
+        "erd": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "headers": [],
+            "produces": [],
+            "responses": [
+                {
+                    "key": "Succesfully Deleted",
+                    "value": "200",
+                    "rowId": "sd_3CTI5l3rytLptWi8",
+                    "valid": true
+                }
+            ]
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "deletehttpout",
+        "category": "HTTP",
+        "x": 745,
+        "y": 160,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_R3MNMr1aKAY2v3PG",
+        "type": "ExecuteSql",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "delete sql",
+        "databaseConfig": "sd_YtNA2Urg6h79jqDJ",
+        "resultMap": {
+            "type": "bh.local",
+            "value": "Result"
+        },
+        "multipleQuery": "",
+        "singleQuery": {
+            "type": "bh.local",
+            "value": "deleteQuery"
+        },
+        "inputs": 1,
+        "outputs": 1,
+        "params": [],
+        "dbType": "mysql",
+        "functionName": "deleteSql",
+        "category": "Storage",
+        "x": 405,
+        "y": 160,
+        "wires": [
+            [
+                "sd_WnuSBkAPIyTeGWc1"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_W3VGlgOrnq22HYGa",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "delete script",
+        "script": "const count = bh.local.result[0].count;\n\nif (count === 0) {\n          bh.local.statusCode=404;\n          let msg=\"Book not found\"\n          bh.local.responseBody = { error: msg };  \n        throw new Error(msg)\n}\nelse{\n\n bh.local.deleteQuery=\"DELETE FROM book\"+\n \" WHERE id=\" + Number(bh.input.params.id);\n}\n",
+        "functionName": "deleteScript",
+        "category": "Function",
+        "x": 325,
+        "y": 160,
+        "wires": [
+            [
+                "sd_R3MNMr1aKAY2v3PG"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_GV1dMS6lQlZVGzSt",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "booklist script 2",
+        "script": "bh.local.responseBody = {\n    total: bh.local.countResult[0].total,\n    items: bh.local.books\n};",
+        "functionName": "booklistScript2",
+        "category": "Function",
+        "x": 485,
+        "y": 40,
+        "wires": [
+            [
+                "sd_aVpzmGPULVqadZ6h"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_TclfO0To5qTXOR6x",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "bookadd",
+        "path": "/bookadd",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "post",
+        "sequenceId": "IDSAuthroizedAPIs",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "useDataModel": false,
+        "dataModelIsArray": false,
+        "uploadFileOptions": "",
+        "erd": "",
+        "erdName": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": []
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "validateRequestUsingSwaggerDocs": false,
+        "category": "HTTP",
+        "x": 65,
+        "y": 320,
+        "wires": [
+            [
+                "sd_GYXDuOmy1DRno2YN"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "books_crud",
+        "functionName": "sd_TclfO0To5qTXOR6x"
+    },
+    {
+        "id": "sd_GYXDuOmy1DRno2YN",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "var isbn = bh.input.body.isbn;\n\n    bh.local.isValidIsbn = true;\n    bh.local.isbn = isbn.toString().trim();\n    bh.local.checkDuplicateQuery = \"SELECT id FROM book WHERE isbn = '\" + isbn + \"' LIMIT 1\";\n     bh.local.olUrl = \"https://openlibrary.org/api/books?bibkeys=ISBN:\" \n                     + bh.local.isbn \n                     + \"&jscmd=data&format=json\"; \n\n\n",
+        "functionName": "sd_GYXDuOmy1DRno2YN",
+        "category": "Function",
+        "x": 145,
+        "y": 320,
+        "wires": [
+            [
+                "sd_REFZNYV0G67LFHe7"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_DjeI26JOouQ3f2s5",
+        "type": "ServerHttpRequest",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "add api",
+        "method": "get",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.olUrl",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "olUrl"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "reqBody": "",
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": ""
+        },
+        "resultMapping": "bh.local.olResponse ",
+        "resultMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "olResponse "
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "authType": "",
+        "useAuthTypeMappingObj": {},
+        "useAuthTypeMap": {},
+        "useAuthType": "",
+        "useAuthUsername": "",
+        "useAuthUsernameMappingObj": "",
+        "useAuthPassword": "",
+        "useAuthPasswordMappingObj": "",
+        "useAuthToken": "",
+        "useAuthTokenMappingObj": "",
+        "useQueryString": false,
+        "tls": "",
+        "followRedirect": true,
+        "paytoqs": false,
+        "useAuthentication": false,
+        "rejectUnauthorized": false,
+        "proxy": "",
+        "useProxy": false,
+        "usetls": false,
+        "cookies": [],
+        "cookiesMapObj": {},
+        "cookiesList": {},
+        "switchStates": {
+            "cookies": "Map"
+        },
+        "editableListData": {},
+        "timeout": {
+            "type": "num",
+            "value": ""
+        },
+        "functionName": "addApi",
+        "category": "HTTP",
+        "x": 385,
+        "y": 320,
+        "wires": [
+            [
+                "sd_S3Pnzy4ndb1TLNgR"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_S3Pnzy4ndb1TLNgR",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "invalidadd",
+        "script": "var isbn = bh.input.body.isbn;\nvar key = \"ISBN:\" + isbn;\n\n\n\n// The actual book data is inside .payload, not the root response\nvar olResponse = bh.local.olResponse;\nvar bookPayload = olResponse && olResponse.payload ? olResponse.payload : null;\n\n\n\n// Check if ISBN exists in Open Library\nif (!bookPayload || !bookPayload[key]) {\n    bh.local.isValidIsbn = false;\n    bh.local.insertQuery = \"\";\n          bh.local.statusCode=404;\n    throw new Error(\"Invalid ISBN. Book not found in Open Library.\")\n    \n} else {\n    bh.local.isValidIsbn = true;\n    var bookInfo = bookPayload[key];\n    var title = bh.input.body.title \n                || bookInfo.title \n                || \"\";\n\n    var author = bh.input.body.author \n                 || (bookInfo.authors && bookInfo.authors.length > 0 \n                     ? bookInfo.authors[0].name \n                     : \"\");\n\n    var publishedYear = bh.input.body.publishedYear \n                        || (bookInfo.publish_date \n                            ? bookInfo.publish_date.slice(-4) \n                            : null);\n\n\n\n    bh.local.bookData = {\n        isbn:          isbn,\n        title:         title,\n        author:        author,\n        publishedYear: Number(publishedYear)\n    };\n\n    bh.local.insertQuery =\n        \"INSERT INTO book (isbn, title, author, publishedYear) VALUES (\" +\n        \"'\" + isbn             + \"', \" +\n        \"'\" + title            + \"', \" +\n        \"'\" + author           + \"', \" +\n        Number(publishedYear)  +\n        \")\";\n}\n",
+        "functionName": "invalidadd",
+        "category": "Function",
+        "x": 465,
+        "y": 320,
+        "wires": [
+            [
+                "sd_sKfNrD2EESMbzDwU"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_sKfNrD2EESMbzDwU",
+        "type": "ExecuteSql",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "databaseConfig": "sd_YtNA2Urg6h79jqDJ",
+        "resultMap": {
+            "type": "bh.local",
+            "value": "Result"
+        },
+        "multipleQuery": "",
+        "singleQuery": {
+            "type": "bh.local",
+            "value": "insertQuery"
+        },
+        "inputs": 1,
+        "outputs": 1,
+        "params": [],
+        "dbType": "mysql",
+        "functionName": "sd_sKfNrD2EESMbzDwU",
+        "category": "Storage",
+        "x": 545,
+        "y": 320,
+        "wires": [
+            [
+                "sd_QnQUzSDFkRukrOcA"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_UXcfS8zqZcCrDacP",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.responseBody = {\n    message: \"Book added successfully\",\n    book: bh.local.bookData\n};",
+        "functionName": "sd_UXcfS8zqZcCrDacP",
+        "category": "Function",
+        "x": 865,
+        "y": 320,
+        "wires": [
+            [
+                "sd_UVaDanBhJiinfimN"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_UVaDanBhJiinfimN",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh.local",
+            "value": "responseBody",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "num",
+            "value": 200,
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "swaggerResponse": {},
+        "responseMapping": {
+            "status": 200,
+            "obj": "bh.local.responseBody",
+            "send": "bh.local.responseBody"
+        },
+        "dataModelIsArray": false,
+        "cookies": [],
+        "inputs": 1,
+        "outputs": 0,
+        "erd": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "headers": [],
+            "produces": [],
+            "responses": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_UVaDanBhJiinfimN",
+        "category": "HTTP",
+        "x": 945,
+        "y": 320,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_AJ19SPaIPTSN1bEY",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "booklist script",
+        "script": "var limit = bh.input.query.limit ? Number(bh.input.query.limit) : 10;\nvar offset = bh.input.query.offset ? Number(bh.input.query.offset) : 0;\n\nbh.local.limit = limit;\nbh.local.offset = offset;\n\n// First query — for count SQL node\nbh.local.countQuery = \"SELECT COUNT(*) as total FROM book\";\n\n// Second query — for select SQL node  \nbh.local.selectQuery = \"SELECT * FROM book LIMIT \" + limit + \" OFFSET \" + offset;",
+        "functionName": "booklistScript",
+        "category": "Function",
+        "x": 205,
+        "y": 40,
+        "wires": [
+            [
+                "sd_OtkXNNpkEbIsKvQf"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_ZzZiRBlvoCs9g19Y",
+        "type": "ExecuteSql",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "booklist sql2",
+        "databaseConfig": "sd_YtNA2Urg6h79jqDJ",
+        "resultMap": {
+            "type": "bh.local",
+            "value": "books"
+        },
+        "multipleQuery": "",
+        "singleQuery": {
+            "type": "bh.local",
+            "value": "selectQuery"
+        },
+        "inputs": 1,
+        "outputs": 1,
+        "params": [],
+        "dbType": "mysql",
+        "functionName": "booklistSql2",
+        "category": "Storage",
+        "x": 385,
+        "y": 40,
+        "wires": [
+            [
+                "sd_GV1dMS6lQlZVGzSt"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_nu57vWhutpqcdOK0",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "var isbn = bh.input.body.isbn;\n\n    bh.local.isbn = isbn.toString().trim();\nbh.local.checkDuplicateQuery = \n    \"SELECT id FROM book WHERE isbn = '\" + isbn + \"' AND id != \" + Number(bh.input.params.id) + \" LIMIT 1\";\n    bh.local.olUrl = \"https://openlibrary.org/api/books?bibkeys=ISBN:\" \n                     + bh.local.isbn \n                     + \"&jscmd=data&format=json\";\n",
+        "functionName": "sd_nu57vWhutpqcdOK0",
+        "category": "Function",
+        "x": 145,
+        "y": 460,
+        "wires": [
+            [
+                "sd_lP6iTxqnu9ZyUviX"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_aDMonHC6H59lQk8U",
+        "type": "ServerHttpRequest",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "updateHTTP",
+        "method": "get",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.olUrl",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "olUrl"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "reqBody": "",
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": ""
+        },
+        "resultMapping": "bh.local.olResponse ",
+        "resultMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "olResponse "
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "authType": "",
+        "useAuthTypeMappingObj": {},
+        "useAuthTypeMap": {},
+        "useAuthType": "",
+        "useAuthUsername": "",
+        "useAuthUsernameMappingObj": "",
+        "useAuthPassword": "",
+        "useAuthPasswordMappingObj": "",
+        "useAuthToken": "",
+        "useAuthTokenMappingObj": "",
+        "useQueryString": false,
+        "tls": "",
+        "followRedirect": true,
+        "paytoqs": false,
+        "useAuthentication": false,
+        "rejectUnauthorized": false,
+        "proxy": "",
+        "useProxy": false,
+        "usetls": false,
+        "cookies": [],
+        "cookiesMapObj": {},
+        "cookiesList": {},
+        "switchStates": {
+            "cookies": "Map"
+        },
+        "editableListData": {},
+        "timeout": {
+            "type": "num",
+            "value": ""
+        },
+        "functionName": "updateHttp",
+        "category": "HTTP",
+        "x": 385,
+        "y": 460,
+        "wires": [
+            [
+                "sd_OLiGvek4mv2ieZti"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_OLiGvek4mv2ieZti",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "EditInvalidISBN",
+        "script": "var isbn = bh.input.body.isbn;\nvar key = \"ISBN:\" + isbn;\n\nvar olResponse = bh.local.olResponse;\nvar bookPayload = olResponse && olResponse.payload ? olResponse.payload : null;\n\nif (!bookPayload || !bookPayload[key]) {\n    bh.local.isValidIsbn = false;\n    bh.local.updateQuery = \"\";\n    bh.local.statusCode=404;\n    let msg = \"Invalid ISBN. Book not found in Open Library.\";\n    bh.local.responseBody = { error: msg };  \n        throw new Error(msg)\n} else {\n    bh.local.isValidIsbn = true;\n\n    var bookInfo = bookPayload[key];\n\n    var title = bh.input.body.title \n                || bookInfo.title \n                || \"\";\n\n    var author = bh.input.body.author \n                 || (bookInfo.authors && bookInfo.authors.length > 0 \n                     ? bookInfo.authors[0].name \n                     : \"\");\n\n    var publishedYear = bh.input.body.publishedYear \n                        || (bookInfo.publish_date \n                            ? bookInfo.publish_date.slice(-4) \n                            : null);\n\n    bh.local.bookData = {\n        isbn:          isbn,\n        title:         title,\n        author:        author,\n        publishedYear: Number(publishedYear)\n    };\n\n    bh.local.updateQuery =\n        \"UPDATE book SET \" +\n        \"isbn = '\"           + isbn                  + \"', \" +\n        \"title = '\"          + title                 + \"', \" +\n        \"author = '\"         + author                + \"', \" +\n        \"publishedYear = \"   + Number(publishedYear) +\n        \" WHERE id = \"       + Number(bh.input.params.id);\n\n} // ✅ else block closes here\n\n// Logs outside — always runs\nconsole.log(\"id:\", bh.input.params.id);\nconsole.log(\"isValidIsbn:\", bh.local.isValidIsbn);\nconsole.log(\"updateQuery:\", bh.local.updateQuery);",
+        "functionName": "editInvalidIsbn",
+        "category": "Function",
+        "x": 465,
+        "y": 460,
+        "wires": [
+            [
+                "sd_8zRg6uR7PTi1pXLG"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_8zRg6uR7PTi1pXLG",
+        "type": "ExecuteSql",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "databaseConfig": "sd_YtNA2Urg6h79jqDJ",
+        "resultMap": {
+            "type": "bh.local",
+            "value": "Result"
+        },
+        "multipleQuery": "",
+        "singleQuery": {
+            "type": "bh.local",
+            "value": "updateQuery"
+        },
+        "inputs": 1,
+        "outputs": 1,
+        "params": [],
+        "dbType": "mysql",
+        "functionName": "sd_8zRg6uR7PTi1pXLG",
+        "category": "Storage",
+        "x": 545,
+        "y": 460,
+        "wires": [
+            [
+                "sd_dNZfRvbDD6Rczl2w"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_0KDbde9eUtyVQwpM",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.responseBody = {\n    message: \"Book Updated successfully\",\n    book: bh.local.bookData\n};",
+        "functionName": "sd_0KDbde9eUtyVQwpM",
+        "category": "Function",
+        "x": 865,
+        "y": 460,
+        "wires": [
+            [
+                "sd_6ogDpstxKhV5wTXG"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_6ogDpstxKhV5wTXG",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh.local",
+            "value": "responseBody",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "num",
+            "value": 200,
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "swaggerResponse": {},
+        "responseMapping": {
+            "status": 200,
+            "obj": "bh.local.responseBody",
+            "send": "bh.local.responseBody"
+        },
+        "dataModelIsArray": false,
+        "cookies": [],
+        "inputs": 1,
+        "outputs": 0,
+        "erd": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "headers": [],
+            "produces": [],
+            "responses": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_6ogDpstxKhV5wTXG",
+        "category": "HTTP",
+        "x": 945,
+        "y": 460,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_30UF7qMNKe1pxPHK",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "book update",
+        "path": "/books/:id",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "put",
+        "sequenceId": "IDSAuthroizedAPIs",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "useDataModel": false,
+        "dataModelIsArray": false,
+        "uploadFileOptions": "",
+        "erd": "",
+        "erdName": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": []
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "validateRequestUsingSwaggerDocs": false,
+        "category": "HTTP",
+        "x": 65,
+        "y": 460,
+        "wires": [
+            [
+                "sd_nu57vWhutpqcdOK0"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "books_crud",
+        "functionName": "sd_30UF7qMNKe1pxPHK"
+    },
+    {
+        "id": "sd_WJUp781Z4ft13qaR",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "book exists",
+        "path": "/book/exists",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "get",
+        "sequenceId": "IDSAuthroizedAPIs",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "useDataModel": false,
+        "dataModelIsArray": false,
+        "uploadFileOptions": "",
+        "erd": "",
+        "erdName": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": []
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "validateRequestUsingSwaggerDocs": false,
+        "category": "HTTP",
+        "x": 105,
+        "y": 600,
+        "wires": [
+            [
+                "sd_RQy2pjvZcjUFlGtK"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "books_crud",
+        "functionName": "sd_WJUp781Z4ft13qaR"
+    },
+    {
+        "id": "sd_RQy2pjvZcjUFlGtK",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "var isbn = bh.input.body.isbn \n           || (bh.local.childInput && bh.local.childInput.isbn); \n\nbh.local.isbn = isbn;\nbh.local.checkQuery = \"SELECT id FROM book WHERE isbn = '\" + isbn + \"' LIMIT 1\";",
+        "functionName": "sd_RQy2pjvZcjUFlGtK",
+        "category": "Function",
+        "x": 205,
+        "y": 600,
+        "wires": [
+            [
+                "sd_oOyC7SOxKaqS7tWq"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_oOyC7SOxKaqS7tWq",
+        "type": "ExecuteSql",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "databaseConfig": "sd_YtNA2Urg6h79jqDJ",
+        "resultMap": {
+            "type": "bh.local",
+            "value": "checkResult"
+        },
+        "multipleQuery": "",
+        "singleQuery": {
+            "type": "bh.local",
+            "value": "checkQuery"
+        },
+        "inputs": 1,
+        "outputs": 1,
+        "params": [],
+        "dbType": "mysql",
+        "functionName": "sd_oOyC7SOxKaqS7tWq",
+        "category": "Storage",
+        "x": 305,
+        "y": 600,
+        "wires": [
+            [
+                "sd_R28Yi8cg9jZsWsn8"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_R28Yi8cg9jZsWsn8",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "var found = bh.local.checkResult && bh.local.checkResult.length > 0;\n\nbh.local.responseBody = { exists: found };\nbh.local.statusCode = found ? 200 : 404;\nbh.local.childOutput = { exists: found };",
+        "functionName": "sd_R28Yi8cg9jZsWsn8",
+        "category": "Function",
+        "x": 405,
+        "y": 600,
+        "wires": [
+            [
+                "sd_xnNtuk4PiIsulFfb"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_xnNtuk4PiIsulFfb",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh.local",
+            "value": "responseBody",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "num",
+            "value": 200,
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "swaggerResponse": {},
+        "responseMapping": {
+            "status": 200,
+            "obj": "bh.local.responseBody",
+            "send": "bh.local.responseBody"
+        },
+        "dataModelIsArray": false,
+        "cookies": [],
+        "inputs": 1,
+        "outputs": 0,
+        "erd": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "headers": [],
+            "produces": [],
+            "responses": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_xnNtuk4PiIsulFfb",
+        "category": "HTTP",
+        "x": 505,
+        "y": 600,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_REFZNYV0G67LFHe7",
+        "type": "ExecuteSql",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "databaseConfig": "sd_YtNA2Urg6h79jqDJ",
+        "resultMap": {
+            "type": "bh.local",
+            "value": "duplicate"
+        },
+        "multipleQuery": "",
+        "singleQuery": {
+            "type": "bh.local",
+            "value": "checkDuplicateQuery"
+        },
+        "inputs": 1,
+        "outputs": 1,
+        "params": [],
+        "dbType": "mysql",
+        "functionName": "sd_REFZNYV0G67LFHe7",
+        "category": "Storage",
+        "x": 225,
+        "y": 320,
+        "wires": [
+            [
+                "sd_X1mgPvwdmpJ3Xrqv"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_X1mgPvwdmpJ3Xrqv",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "isDuplicate",
+        "script": "var exists = bh.local.duplicate && bh.local.duplicate.length>0;\n\nif (exists) {\n    bh.local.isDuplicate = true;\n       bh.local.statusCode=409;\n let msg = \"Book with ISBN \" + bh.input.body.isbn + \" already exists\";\n    bh.local.responseBody = { error: msg };  \n        throw new Error(msg)\n        } \n        else {\n    bh.local.isDuplicate = false;\n}",
+        "functionName": "isDuplicate",
+        "category": "Function",
+        "x": 305,
+        "y": 320,
+        "wires": [
+            [
+                "sd_DjeI26JOouQ3f2s5"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_Ejxmb0SHNZw0Txd2",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "already exists ISBN",
+        "script": "// Script after Child Process node\nvar exists = bh.local.duplicate && bh.local.duplicate.length>0;\n\nif (exists) {\n    bh.local.isDuplicate = true;\n       bh.local.statusCode=404;\n       let msg = \"Book with ISBN \" + bh.input.body.isbn + \" already exists\";\n    bh.local.responseBody = { error: msg };  \n        throw new Error(msg)\n} else {\n    bh.local.isDuplicate = false;\n}",
+        "functionName": "alreadyExistsIsbn",
+        "category": "Function",
+        "x": 305,
+        "y": 460,
+        "wires": [
+            [
+                "sd_aDMonHC6H59lQk8U"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_lP6iTxqnu9ZyUviX",
+        "type": "ExecuteSql",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "databaseConfig": "sd_YtNA2Urg6h79jqDJ",
+        "resultMap": {
+            "type": "bh.local",
+            "value": "duplicate"
+        },
+        "multipleQuery": "",
+        "singleQuery": {
+            "type": "bh.local",
+            "value": "checkDuplicateQuery"
+        },
+        "inputs": 1,
+        "outputs": 1,
+        "params": [],
+        "dbType": "mysql",
+        "functionName": "sd_lP6iTxqnu9ZyUviX",
+        "category": "Storage",
+        "x": 225,
+        "y": 460,
+        "wires": [
+            [
+                "sd_Ejxmb0SHNZw0Txd2"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_RytKNnF6E2zOl949",
+        "type": "CallService",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "SSD_SERVICE_ID_sd_sBZMy9S2Rsi8LLTj",
+            "type": "tab",
+            "createdDate": "2026-05-30T12:30:57.617Z",
+            "label": "book_audit",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_7sM96Rtqm7ri8byu",
+            "flowName": "insertaudit"
+        },
+        "inputVariables": [
+            {
+                "key": "operation",
+                "map": false,
+                "value": "\"DELETE_BOOK\""
+            },
+            {
+                "key": "resourceId",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "params.id"
+            },
+            {
+                "key": "userId",
+                "map": true,
+                "valueType": "bh.local",
+                "value": "userId.accountId"
+            }
+        ],
+        "bhVariables": [],
+        "outputMapping": [
+            {
+                "mapVarType": "input",
+                "key": "operation",
+                "valueType": "bh",
+                "value": "",
+                "mapVarName": "operation"
+            },
+            {
+                "mapVarType": "input",
+                "key": "resourceId",
+                "valueType": "bh",
+                "value": "",
+                "mapVarName": "resourceId"
+            },
+            {
+                "mapVarType": "input",
+                "key": "userId",
+                "valueType": "bh",
+                "value": "",
+                "mapVarName": "userId"
+            }
+        ],
+        "callService": "./book_audit",
+        "startName": "insertaudit",
+        "inputParams": [
+            "\"DELETE_BOOK\"",
+            "bh.input.params.id",
+            "bh.local.userId.accountId"
+        ],
+        "accept_bh": false,
+        "functionName": "sd_RytKNnF6E2zOl949",
+        "category": "General",
+        "x": 665,
+        "y": 160,
+        "wires": [
+            [
+                "sd_Qsj6fSrNM5gRBEp9"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_Z7O8AFTWboeuLuSp",
+        "type": "CallService",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "SSD_SERVICE_ID_sd_sBZMy9S2Rsi8LLTj",
+            "type": "tab",
+            "createdDate": "2026-05-30T12:30:57.617Z",
+            "label": "book_audit",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_7sM96Rtqm7ri8byu",
+            "flowName": "insertaudit"
+        },
+        "inputVariables": [
+            {
+                "key": "operation",
+                "map": false,
+                "value": "\"CREATE_BOOK\""
+            },
+            {
+                "key": "resourceId",
+                "map": true,
+                "valueType": "bh.local",
+                "value": "Result.insertId"
+            },
+            {
+                "key": "userId",
+                "map": true,
+                "valueType": "bh.local",
+                "value": "userId.accountId"
+            }
+        ],
+        "bhVariables": [],
+        "outputMapping": [
+            {
+                "mapVarType": "input",
+                "key": "operation",
+                "valueType": "bh",
+                "value": "",
+                "mapVarName": "operation"
+            },
+            {
+                "mapVarType": "input",
+                "key": "resourceId",
+                "valueType": "bh",
+                "value": "",
+                "mapVarName": "resourceId"
+            },
+            {
+                "mapVarType": "input",
+                "key": "userId",
+                "valueType": "bh",
+                "value": "",
+                "mapVarName": "userId"
+            }
+        ],
+        "callService": "./book_audit",
+        "startName": "insertaudit",
+        "inputParams": [
+            "\"CREATE_BOOK\"",
+            "bh.local.Result.insertId",
+            "bh.local.userId.accountId"
+        ],
+        "accept_bh": false,
+        "functionName": "sd_Z7O8AFTWboeuLuSp",
+        "category": "General",
+        "x": 785,
+        "y": 320,
+        "wires": [
+            [
+                "sd_UXcfS8zqZcCrDacP"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_pri5nwSVzSu7jq76",
+        "type": "CallService",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "SSD_SERVICE_ID_sd_sBZMy9S2Rsi8LLTj",
+            "type": "tab",
+            "createdDate": "2026-05-30T12:30:57.617Z",
+            "label": "book_audit",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_7sM96Rtqm7ri8byu",
+            "flowName": "insertaudit"
+        },
+        "inputVariables": [
+            {
+                "key": "operation",
+                "map": false,
+                "value": "\"UPDATE_BOOK\""
+            },
+            {
+                "key": "resourceId",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "params.id"
+            },
+            {
+                "key": "userId",
+                "map": true,
+                "valueType": "bh.local",
+                "value": "userId.accountId"
+            }
+        ],
+        "bhVariables": [],
+        "outputMapping": [
+            {
+                "mapVarType": "input",
+                "key": "operation",
+                "valueType": "bh",
+                "value": "",
+                "mapVarName": "operation"
+            },
+            {
+                "mapVarType": "input",
+                "key": "resourceId",
+                "valueType": "bh",
+                "value": "",
+                "mapVarName": "resourceId"
+            },
+            {
+                "mapVarType": "input",
+                "key": "userId",
+                "valueType": "bh",
+                "value": "",
+                "mapVarName": "userId"
+            }
+        ],
+        "callService": "./book_audit",
+        "startName": "insertaudit",
+        "inputParams": [
+            "\"UPDATE_BOOK\"",
+            "bh.input.params.id",
+            "bh.local.userId.accountId"
+        ],
+        "accept_bh": false,
+        "functionName": "sd_pri5nwSVzSu7jq76",
+        "category": "General",
+        "x": 785,
+        "y": 460,
+        "wires": [
+            [
+                "sd_0KDbde9eUtyVQwpM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_HbRTDCsRuLPS9TM4",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "audit list",
+        "path": "/audits",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "get",
+        "sequenceId": "IDSAuthroizedAPIs",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "useDataModel": false,
+        "dataModelIsArray": false,
+        "uploadFileOptions": "",
+        "erd": "",
+        "erdName": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": []
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "validateRequestUsingSwaggerDocs": false,
+        "category": "HTTP",
+        "x": 105,
+        "y": 720,
+        "wires": [
+            [
+                "sd_3edkhv3NYms645Ue"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "books_crud",
+        "functionName": "sd_HbRTDCsRuLPS9TM4"
+    },
+    {
+        "id": "sd_3edkhv3NYms645Ue",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "var startTime = bh.input.query.startTime || null;\nvar endTime = bh.input.query.endTime || null;\nvar operation = bh.input.query.operation || null;\n\nvar where = [];\n\nif (startTime) {\n    where.push(\"timestamp >= '\" + startTime + \"'\");\n}\nif (endTime) {\n    where.push(\"timestamp <= '\" + endTime + \"'\");\n}\nif (operation) {\n    where.push(\"operation LIKE '%\" + operation + \"%'\");\n}\n\nvar whereClause = where.length > 0 \n                  ? \" WHERE \" + where.join(\" AND \") \n                  : \"\";\n\nbh.local.auditQuery = \n    \"SELECT * FROM audit\" + whereClause + \" ORDER BY timestamp DESC\";\n\nconsole.log(\"auditQuery:\", bh.local.auditQuery);",
+        "functionName": "sd_3edkhv3NYms645Ue",
+        "category": "Function",
+        "x": 210,
+        "y": 720,
+        "wires": [
+            [
+                "sd_C90a5EFljCxc0V1t"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_C90a5EFljCxc0V1t",
+        "type": "ExecuteSql",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "databaseConfig": "sd_YtNA2Urg6h79jqDJ",
+        "resultMap": {
+            "type": "bh.local",
+            "value": "auditResult"
+        },
+        "multipleQuery": "",
+        "singleQuery": {
+            "type": "bh.local",
+            "value": "auditQuery"
+        },
+        "inputs": 1,
+        "outputs": 1,
+        "params": [],
+        "dbType": "mysql",
+        "functionName": "sd_C90a5EFljCxc0V1t",
+        "category": "Storage",
+        "x": 330,
+        "y": 720,
+        "wires": [
+            [
+                "sd_EWTdhwPm4ewtD68w"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_EWTdhwPm4ewtD68w",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.responseBody = (bh.local.auditResult || []).map(item => ({\n    ...item,\n    resourceId: item.resourceId == null ? \"N/A\" : item.resourceId\n}));",
+        "functionName": "sd_EWTdhwPm4ewtD68w",
+        "category": "Function",
+        "x": 445,
+        "y": 720,
+        "wires": [
+            [
+                "sd_RG4jeXjShS2o7JY0"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_f63u0Q5Cc9pYR2ex",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "pdf download",
+        "path": "report/pdf",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "get",
+        "sequenceId": "IDSAuthroizedAPIs",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "useDataModel": false,
+        "dataModelIsArray": false,
+        "uploadFileOptions": "",
+        "erd": "",
+        "erdName": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": []
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "validateRequestUsingSwaggerDocs": false,
+        "category": "HTTP",
+        "x": 105,
+        "y": 860,
+        "wires": [
+            [
+                "sd_e5qjcbEkX6y7kLeP"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "books_crud",
+        "functionName": "sd_f63u0Q5Cc9pYR2ex"
+    },
+    {
+        "id": "sd_e5qjcbEkX6y7kLeP",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "var startTime = bh.input.query.startTime || null;\nvar endTime = bh.input.query.endTime || null;\nvar operation = bh.input.query.operation || null;\n\nvar where = [];\n\nif (startTime) {\n    var start = startTime.replace(\"T\", \" \");\n    where.push(\"timestamp >= '\" + start + \"'\");\n}\nif (endTime) {\n    var end = endTime.replace(\"T\", \" \");\n    where.push(\"timestamp <= '\" + end + \"'\");\n}\nif (operation) {\n    where.push(\"operation = '\" + operation + \"'\");\n}\n\nvar whereClause = where.length > 0 \n                  ? \" WHERE \" + where.join(\" AND \") \n                  : \"\";\n\nbh.local.auditQuery = \n    \"SELECT * FROM audit\" + whereClause + \" ORDER BY timestamp ASC\";",
+        "functionName": "sd_e5qjcbEkX6y7kLeP",
+        "category": "Function",
+        "x": 220,
+        "y": 860,
+        "wires": [
+            [
+                "sd_2Aqv0epKm6jBKNUu"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_XCrcf9AMn0BJK4mj",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "var audits = bh.local.auditResult || [];\nvar puppeteer = require(\"puppeteer\");\nvar path = require(\"path\");\n\nfunction formatTimestamp(ts) {\n    if (!ts) return \"N/A\";\n    var d = new Date(ts);\n    var yyyy = d.getFullYear();\n    var mm   = String(d.getMonth() + 1).padStart(2, \"0\");\n    var dd   = String(d.getDate()).padStart(2, \"0\");\n    var hh   = String(d.getHours()).padStart(2, \"0\");\n    var min  = String(d.getMinutes()).padStart(2, \"0\");\n    var ss   = String(d.getSeconds()).padStart(2, \"0\");\n    return yyyy + \"-\" + mm + \"-\" + dd + \"T\" + hh + \":\" + min + \":\" + ss + \"Z\";\n}\n\nfunction generateHTML(audits) {\n    return `\n    <!DOCTYPE html>\n    <html lang=\"en\">\n    <head>\n      <meta charset=\"UTF-8\">\n      <title>Audit Report</title>\n      <style>\n        body { font-family: Arial, sans-serif; margin: 20px; }\n        h1 { text-align: center; }\n        table { width: 100%; border-collapse: collapse; margin-top: 20px; }\n        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }\n        th { background-color: #f4f4f4; }\n        tr:nth-child(even) { background-color: #f9f9f9; }\n      </style>\n    </head>\n    <body>\n      <h1>Audit Report</h1>\n      <table>\n        <thead>\n          <tr>\n            <th>ID</th>\n            <th>Timestamp</th>\n            <th>Operation</th>\n            <th>Resource ID</th>\n            <th>User ID</th>\n          </tr>\n        </thead>\n        <tbody>\n          ${audits.map(function(audit) {\n            return `\n              <tr>\n                <td>${audit.id}</td>\n                <td>${formatTimestamp(audit.timestamp)}</td>\n                <td>${audit.operation}</td>\n                <td>${audit.resourceId !== null && audit.resourceId !== undefined ? audit.resourceId : \"N/A\"}</td>\n                <td>${audit.userId || \"N/A\"}</td>\n              </tr>\n            `;\n          }).join(\"\")}\n        </tbody>\n      </table>\n    </body>\n    </html>\n    `;\n}\n\nvar pdfPath = path.join(__dirname, \"audit-report.pdf\");\n\nvar browser = await puppeteer.launch({\n    headless: true,\n    args: [\"--no-sandbox\", \"--disable-setuid-sandbox\"]\n});\n\nvar page = await browser.newPage();\nawait page.setContent(generateHTML(audits));\nawait page.pdf({\n    format: \"A4\",\n    printBackground: true,\n    path: pdfPath\n});\nawait browser.close();\n\nbh.local.pdfPath = pdfPath;\nconsole.log(\"PDF generated at:\", pdfPath);\n",
+        "functionName": "sd_XCrcf9AMn0BJK4mj",
+        "category": "Function",
+        "x": 425,
+        "y": 860,
+        "wires": [
+            [
+                "sd_i9tFnh31A8PPBmht"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_2Aqv0epKm6jBKNUu",
+        "type": "ExecuteSql",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "databaseConfig": "sd_YtNA2Urg6h79jqDJ",
+        "resultMap": {
+            "type": "bh.local",
+            "value": "auditResult"
+        },
+        "multipleQuery": "",
+        "singleQuery": {
+            "type": "bh.local",
+            "value": "auditQuery"
+        },
+        "inputs": 1,
+        "outputs": 1,
+        "params": [],
+        "dbType": "mysql",
+        "functionName": "sd_2Aqv0epKm6jBKNUu",
+        "category": "Storage",
+        "x": 340,
+        "y": 860,
+        "wires": [
+            [
+                "sd_XCrcf9AMn0BJK4mj"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_uzFNHMmjV5M9xRSx",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {
+            "Content-Type": "application/pdf",
+            "Content-Disposition": "attachment; filename=\"audit-report.pdf\""
+        },
+        "responseBody": {
+            "type": "bh.local",
+            "value": "pdfPath",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "num",
+            "value": 200,
+            "ssd_typedInputField": true
+        },
+        "responseType": "file",
+        "swaggerResponse": {},
+        "responseMapping": {
+            "status": 200,
+            "file": "bh.local.pdfPath"
+        },
+        "dataModelIsArray": false,
+        "cookies": [],
+        "inputs": 1,
+        "outputs": 0,
+        "erd": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "headers": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/pdf",
+                    "rowId": "sd_P7eIS5yYDpEcarmh",
+                    "valid": true
+                },
+                {
+                    "key": "Content-Disposition",
+                    "value": "attachment; filename=\"audit-report.pdf\"",
+                    "rowId": "sd_auqufFTwOiYfBjE2",
+                    "valid": true
+                }
+            ],
+            "produces": [],
+            "responses": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_uzFNHMmjV5M9xRSx",
+        "category": "HTTP",
+        "x": 805,
+        "y": 860,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_kxwIb0YwtFwqK4Ug",
+        "type": "CallService",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "SSD_SERVICE_ID_sd_sBZMy9S2Rsi8LLTj",
+            "type": "tab",
+            "createdDate": "2026-05-30T12:30:57.617Z",
+            "label": "book_audit",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_7sM96Rtqm7ri8byu",
+            "flowName": "insertaudit"
+        },
+        "inputVariables": [
+            {
+                "key": "operation",
+                "map": false,
+                "value": "\"GENERATE_PDF\""
+            },
+            {
+                "key": "resourceId",
+                "map": false,
+                "value": ""
+            },
+            {
+                "key": "userId",
+                "map": true,
+                "valueType": "bh.local",
+                "value": "userId.accountId"
+            }
+        ],
+        "bhVariables": [],
+        "outputMapping": [
+            {
+                "mapVarType": "input",
+                "key": "operation",
+                "valueType": "bh",
+                "value": "",
+                "mapVarName": "operation"
+            },
+            {
+                "mapVarType": "input",
+                "key": "resourceId",
+                "valueType": "bh",
+                "value": "",
+                "mapVarName": "resourceId"
+            },
+            {
+                "mapVarType": "input",
+                "key": "userId",
+                "valueType": "bh",
+                "value": "",
+                "mapVarName": "userId"
+            }
+        ],
+        "callService": "./book_audit",
+        "startName": "insertaudit",
+        "inputParams": [
+            "\"GENERATE_PDF\"",
+            "",
+            "bh.local.userId.accountId"
+        ],
+        "accept_bh": false,
+        "functionName": "sd_kxwIb0YwtFwqK4Ug",
+        "category": "General",
+        "x": 705,
+        "y": 860,
+        "wires": [
+            [
+                "sd_uzFNHMmjV5M9xRSx"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_WnuSBkAPIyTeGWc1",
+        "type": "Session",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "deletesession",
+        "operationType": "get",
+        "data": "",
+        "resultMapping": "bh.local.session",
+        "dataMapping": "bh",
+        "functionName": "deletesession",
+        "category": "HTTP",
+        "x": 485,
+        "y": 160,
+        "wires": [
+            [
+                "sd_lHE15TOYN4NoE1LT"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "resultMapping": {
+                "type": "bh.local",
+                "value": "session",
+                "constant": false
+            },
+            "dataMapping": {
+                "type": "bh",
+                "value": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_lHE15TOYN4NoE1LT",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "deletescript2",
+        "script": "bh.local.userId = bh.local.session?.data?.userInfo?.sub || null;",
+        "functionName": "deletescript2",
+        "category": "Function",
+        "x": 565,
+        "y": 160,
+        "wires": [
+            [
+                "sd_RytKNnF6E2zOl949"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_QnQUzSDFkRukrOcA",
+        "type": "Session",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "session",
+        "operationType": "get",
+        "data": "",
+        "resultMapping": "bh.local.session",
+        "dataMapping": "bh",
+        "functionName": "session",
+        "category": "HTTP",
+        "x": 625,
+        "y": 320,
+        "wires": [
+            [
+                "sd_PJjTaaTtExfJCodF"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "resultMapping": {
+                "type": "bh.local",
+                "value": "session",
+                "constant": false
+            },
+            "dataMapping": {
+                "type": "bh",
+                "value": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_PJjTaaTtExfJCodF",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.userId = bh.local.session?.data?.userInfo?.sub || null;",
+        "functionName": "sd_PJjTaaTtExfJCodF",
+        "category": "Function",
+        "x": 705,
+        "y": 320,
+        "wires": [
+            [
+                "sd_Z7O8AFTWboeuLuSp"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_dNZfRvbDD6Rczl2w",
+        "type": "Session",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "session1",
+        "operationType": "get",
+        "data": "",
+        "resultMapping": "bh.local.session",
+        "dataMapping": "bh",
+        "functionName": "session1",
+        "category": "HTTP",
+        "x": 625,
+        "y": 460,
+        "wires": [
+            [
+                "sd_DFQecA2WNQIh0Y7G"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "resultMapping": {
+                "type": "bh.local",
+                "value": "session",
+                "constant": false
+            },
+            "dataMapping": {
+                "type": "bh",
+                "value": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_DFQecA2WNQIh0Y7G",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.userId = bh.local.session?.data?.userInfo?.sub || null;",
+        "functionName": "sd_DFQecA2WNQIh0Y7G",
+        "category": "Function",
+        "x": 705,
+        "y": 460,
+        "wires": [
+            [
+                "sd_pri5nwSVzSu7jq76"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_j4Or3T0DHivhQeb3",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.userId = bh.local.session?.data?.userInfo?.sub || null;",
+        "functionName": "sd_j4Or3T0DHivhQeb3",
+        "category": "Function",
+        "x": 605,
+        "y": 860,
+        "wires": [
+            [
+                "sd_kxwIb0YwtFwqK4Ug"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_i9tFnh31A8PPBmht",
+        "type": "Session",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "session12",
+        "operationType": "get",
+        "data": "",
+        "resultMapping": "bh.local.session",
+        "dataMapping": "bh",
+        "functionName": "session12",
+        "category": "HTTP",
+        "x": 525,
+        "y": 860,
+        "wires": [
+            [
+                "sd_j4Or3T0DHivhQeb3"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "resultMapping": {
+                "type": "bh.local",
+                "value": "session",
+                "constant": false
+            },
+            "dataMapping": {
+                "type": "bh",
+                "value": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_C22NNDsCTZQ41esg",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "",
+        "path": "/books/:id",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "get",
+        "sequenceId": "IDSAuthroizedAPIs",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "useDataModel": false,
+        "dataModelIsArray": false,
+        "uploadFileOptions": "",
+        "erd": "",
+        "erdName": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": []
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "validateRequestUsingSwaggerDocs": false,
+        "category": "HTTP",
+        "x": 105,
+        "y": 1000,
+        "wires": [
+            [
+                "sd_iyKnH05MZzGwabhw"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "books_crud",
+        "functionName": "sd_C22NNDsCTZQ41esg"
+    },
+    {
+        "id": "sd_iyKnH05MZzGwabhw",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "var id = bh.input.params.id;\nconsole.log(\"111111111111111111111id:\", id);\n\nbh.local.ViewQuery =\n    \"SELECT * FROM book WHERE id = \" + id;",
+        "functionName": "sd_iyKnH05MZzGwabhw",
+        "category": "Function",
+        "x": 245,
+        "y": 1000,
+        "wires": [
+            [
+                "sd_sK28KpN7Hfssl4YD"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_sK28KpN7Hfssl4YD",
+        "type": "ExecuteSql",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "databaseConfig": "sd_YtNA2Urg6h79jqDJ",
+        "resultMap": {
+            "type": "bh.local",
+            "value": "ViewResult"
+        },
+        "multipleQuery": "",
+        "singleQuery": {
+            "type": "bh.local",
+            "value": "ViewQuery"
+        },
+        "inputs": 1,
+        "outputs": 1,
+        "params": [],
+        "dbType": "mysql",
+        "functionName": "sd_sK28KpN7Hfssl4YD",
+        "category": "Storage",
+        "x": 410,
+        "y": 1000,
+        "wires": [
+            [
+                "sd_AKKC2ePn0psjZg5D"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_o9kFMIEG6dSqk2mr",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh.local",
+            "value": "ViewResult",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "num",
+            "value": 200,
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "swaggerResponse": {},
+        "responseMapping": {
+            "status": 200,
+            "obj": "bh.local.ViewResult",
+            "send": "bh.local.ViewResult"
+        },
+        "dataModelIsArray": false,
+        "cookies": [],
+        "inputs": 1,
+        "outputs": 0,
+        "erd": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "headers": [],
+            "produces": [],
+            "responses": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_o9kFMIEG6dSqk2mr",
+        "category": "HTTP",
+        "x": 625,
+        "y": 1000,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_lQowgq8iipGjOXPC",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "",
+        "path": "/book/:isbn",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "get",
+        "sequenceId": "IDSAuthroizedAPIs",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "useDataModel": false,
+        "dataModelIsArray": false,
+        "uploadFileOptions": "",
+        "erd": "",
+        "erdName": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": []
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "validateRequestUsingSwaggerDocs": false,
+        "category": "HTTP",
+        "x": 110,
+        "y": 1120,
+        "wires": [
+            [
+                "sd_oa2cLYnU3kkpkzIa"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "books_crud",
+        "functionName": "sd_lQowgq8iipGjOXPC"
+    },
+    {
+        "id": "sd_P8v0inGOlk2Yv8r7",
+        "type": "ServerHttpRequest",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "openlibraryget",
+        "method": "get",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "reqBody": "",
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": ""
+        },
+        "resultMapping": "bh.local.searchResponse",
+        "resultMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "searchResponse"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "authType": "",
+        "useAuthTypeMappingObj": {},
+        "useAuthTypeMap": {},
+        "useAuthType": "",
+        "useAuthUsername": "",
+        "useAuthUsernameMappingObj": "",
+        "useAuthPassword": "",
+        "useAuthPasswordMappingObj": "",
+        "useAuthToken": "",
+        "useAuthTokenMappingObj": "",
+        "useQueryString": false,
+        "tls": "",
+        "followRedirect": true,
+        "paytoqs": false,
+        "useAuthentication": false,
+        "rejectUnauthorized": false,
+        "proxy": "",
+        "useProxy": false,
+        "usetls": false,
+        "cookies": [],
+        "cookiesMapObj": {},
+        "cookiesList": {},
+        "switchStates": {
+            "cookies": "Map"
+        },
+        "editableListData": {},
+        "timeout": {
+            "type": "num",
+            "value": ""
+        },
+        "functionName": "openlibraryget",
+        "category": "HTTP",
+        "x": 290,
+        "y": 1120,
+        "wires": [
+            [
+                "sd_6H5rw0SX6Xo3CN7o"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_GpfIiANdLAzcavHM",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh.local",
+            "value": "result",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "num",
+            "value": 200,
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "swaggerResponse": {},
+        "responseMapping": {
+            "status": 200,
+            "obj": "bh.local.result",
+            "send": "bh.local.result"
+        },
+        "dataModelIsArray": false,
+        "cookies": [],
+        "inputs": 1,
+        "outputs": 0,
+        "erd": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "headers": [],
+            "produces": [],
+            "responses": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_GpfIiANdLAzcavHM",
+        "category": "HTTP",
+        "x": 490,
+        "y": 1120,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_oa2cLYnU3kkpkzIa",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "ReqISBN",
+        "script": "var isbn = bh.input.params.isbn;\n\n\nbh.local.url = \"https://openlibrary.org/isbn/\" + isbn.toString().trim() + \".json\";",
+        "functionName": "reqIsbn",
+        "category": "Function",
+        "x": 210,
+        "y": 1120,
+        "wires": [
+            [
+                "sd_P8v0inGOlk2Yv8r7"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_6H5rw0SX6Xo3CN7o",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "InvalidISBN",
+        "script": "console.log(\"bh.local.searchResponse\", bh.local.searchResponse);\n\nlet response = bh.local.searchResponse;\nlet data = response.payload;\n\n\n    bh.local.result = [{\n        title: data.title || \"N/A\",\n        publish_date: data.publish_date || \"N/A\",\n        publisher: data.publishers?.[0] || \"N/A\"\n    }];\n",
+        "functionName": "invalidIsbn",
+        "category": "Function",
+        "x": 385,
+        "y": 1120,
+        "wires": [
+            [
+                "sd_GpfIiANdLAzcavHM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_OIVmZI43yVWyH62V",
+        "type": "Catch",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "selectedNodes": [
+            "sd_P8v0inGOlk2Yv8r7"
+        ],
+        "selectCatchType": "selectednodes",
+        "masternodeList": "",
+        "ignoreList": "",
+        "functionName": "sd_OIVmZI43yVWyH62V",
+        "category": "General",
+        "x": 590,
+        "y": 1120,
+        "wires": [
+            [
+                "sd_elEaVUN0sH5kiNdn"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "books_crud"
+    },
+    {
+        "id": "sd_cD4Qhoi3pypWGPZ5",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh.local",
+            "value": "responseBody",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "bh.local",
+            "value": "statusCode",
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "swaggerResponse": {},
+        "responseMapping": {
+            "status": "bh.local.statusCode",
+            "obj": "bh.local.responseBody",
+            "send": "bh.local.responseBody"
+        },
+        "dataModelIsArray": false,
+        "cookies": [],
+        "inputs": 1,
+        "outputs": 0,
+        "erd": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "headers": [],
+            "produces": [],
+            "responses": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_cD4Qhoi3pypWGPZ5",
+        "category": "HTTP",
+        "x": 770,
+        "y": 1120,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_elEaVUN0sH5kiNdn",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(\"Catch triggered - bh.error:\", bh.error);\n\nlet upstreamStatus =\n    (bh.error && bh.error.response && bh.error.response.statusCode) ||\n    null;\n\nlet statusCode;\nlet errorMessage;\n\nif (upstreamStatus === 404) {\n    statusCode = 404;\n    errorMessage = \"Invalid ISBN. Book not found in Open Library.\";\n} else if (upstreamStatus) {\n    // Any other non-2xx from Open Library (e.g. 500, 503) - treat as connection failure\n    statusCode = 500;\n    errorMessage = \"Failed to connect to Open Library API\";\n} else {\n    // No response at all - network/timeout/DNS failure, no upstreamStatus available\n    statusCode = 500;\n    errorMessage = \"Failed to connect to Open Library API\";\n}\n\nbh.local.statusCode = statusCode;\nbh.local.responseBody = {\n    error: errorMessage\n};\n\nconsole.log(\"bh.local.statusCode\", bh.local.statusCode);\nconsole.log(\"bh.local.responseBody\", bh.local.responseBody);",
+        "functionName": "sd_elEaVUN0sH5kiNdn",
+        "category": "Function",
+        "x": 670,
+        "y": 1120,
+        "wires": [
+            [
+                "sd_cD4Qhoi3pypWGPZ5"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_paK5sPLjDZyGGp4G",
+        "type": "Catch",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "selectedNodes": [
+            "sd_DjeI26JOouQ3f2s5",
+            "sd_aDMonHC6H59lQk8U"
+        ],
+        "selectCatchType": "selectednodes",
+        "masternodeList": "",
+        "ignoreList": "",
+        "functionName": "sd_paK5sPLjDZyGGp4G",
+        "category": "General",
+        "x": 1045,
+        "y": 380,
+        "wires": [
+            [
+                "sd_k4clU1lgIBobN9mF"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "books_crud"
+    },
+    {
+        "id": "sd_8fPJFeMqHhb7Th7f",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh.local",
+            "value": "responseBody",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "bh.local",
+            "value": "statusCode",
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "swaggerResponse": {},
+        "responseMapping": {
+            "status": "bh.local.statusCode",
+            "obj": "bh.local.responseBody",
+            "send": "bh.local.responseBody"
+        },
+        "dataModelIsArray": false,
+        "cookies": [],
+        "inputs": 1,
+        "outputs": 0,
+        "erd": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "headers": [],
+            "produces": [],
+            "responses": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_8fPJFeMqHhb7Th7f",
+        "category": "HTTP",
+        "x": 1225,
+        "y": 380,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_k4clU1lgIBobN9mF",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "/* bh.local.statusCode = bh.local.statusCode || 500;\nbh.local.responseBody = {\n    error: (bh.error && bh.error.message) ? bh.error.message : \"Unexpected error occurred\"\n}; */\n\nlet upstreamStatus =\n    (bh.error && bh.error.response && bh.error.response.statusCode) ||\n    null;\n\nlet statusCode;\nlet errorMessage;\n\nif (upstreamStatus === 404) {\n    statusCode = 404;\n    errorMessage = \"Invalid ISBN. Book not found in Open Library.\";\n} \n\nelse if (upstreamStatus) {\n    // Any other non-2xx from Open Library (e.g. 500, 503) - treat as connection failure\n    statusCode = 500;\n    errorMessage = \"Failed to connect to Open Library API\";\n} else {\n    // No response at all - network/timeout/DNS failure, no upstreamStatus available\n    statusCode = 500;\n    errorMessage = \"Failed to connect to Open Library API\";\n}\n\nbh.local.statusCode = statusCode;\nbh.local.responseBody = {\n    error: errorMessage\n};\n\nconsole.log(\"bh.local.statusCode\", bh.local.statusCode);\nconsole.log(\"bh.local.responseBody\", bh.local.responseBody);",
+        "functionName": "sd_k4clU1lgIBobN9mF",
+        "category": "Function",
+        "x": 1145,
+        "y": 380,
+        "wires": [
+            [
+                "sd_8fPJFeMqHhb7Th7f"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_RG4jeXjShS2o7JY0",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh.local",
+            "value": "responseBody",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "num",
+            "value": 200,
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "swaggerResponse": {},
+        "responseMapping": {
+            "status": 200,
+            "obj": "bh.local.responseBody",
+            "send": "bh.local.responseBody"
+        },
+        "dataModelIsArray": false,
+        "cookies": [],
+        "inputs": 1,
+        "outputs": 0,
+        "erd": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "headers": [],
+            "produces": [],
+            "responses": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_RG4jeXjShS2o7JY0",
+        "category": "HTTP",
+        "x": 545,
+        "y": 720,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_tfTKf4rYqArhvGHO",
+        "type": "Catch",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "selectedNodes": [
+            "sd_W3VGlgOrnq22HYGa"
+        ],
+        "selectCatchType": "selectednodes",
+        "masternodeList": "",
+        "ignoreList": "",
+        "functionName": "sd_tfTKf4rYqArhvGHO",
+        "category": "General",
+        "x": 885,
+        "y": 160,
+        "wires": [
+            [
+                "sd_m6PvjLi3WqCgQTeE"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "books_crud"
+    },
+    {
+        "id": "sd_m6PvjLi3WqCgQTeE",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh.local",
+            "value": "responseBody",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "bh.local",
+            "value": "statusCode",
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "swaggerResponse": {},
+        "responseMapping": {
+            "status": "bh.local.statusCode",
+            "obj": "bh.local.responseBody",
+            "send": "bh.local.responseBody"
+        },
+        "dataModelIsArray": false,
+        "cookies": [],
+        "inputs": 1,
+        "outputs": 0,
+        "erd": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "headers": [],
+            "produces": [],
+            "responses": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_m6PvjLi3WqCgQTeE",
+        "category": "HTTP",
+        "x": 1005,
+        "y": 160,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_Bp0JOMX1erZToap1",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "existcheck1",
+        "script": "bh.local.checkQuery =\n  \"SELECT COUNT(*) AS count FROM book WHERE id=\" + Number(bh.input.params.id);",
+        "functionName": "existcheck1",
+        "category": "Function",
+        "x": 145,
+        "y": 160,
+        "wires": [
+            [
+                "sd_qZVTw0MoC0VfEmkd"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_qZVTw0MoC0VfEmkd",
+        "type": "ExecuteSql",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "exist sql",
+        "databaseConfig": "sd_YtNA2Urg6h79jqDJ",
+        "queryType": "",
+        "resultMap": {
+            "type": "bh.local",
+            "value": "result"
+        },
+        "multipleQuery": "",
+        "singleQuery": {
+            "type": "bh.local",
+            "value": "checkQuery"
+        },
+        "inputs": 1,
+        "outputs": 1,
+        "params": [],
+        "paramMappingObj": {},
+        "dbType": "mysql",
+        "functionName": "existSql",
+        "category": "Storage",
+        "x": 245,
+        "y": 160,
+        "wires": [
+            [
+                "sd_W3VGlgOrnq22HYGa"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_88zPVUZngf0ZVrhd",
+        "type": "Catch",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "selectedNodes": [
+            "sd_OLiGvek4mv2ieZti",
+            "sd_X1mgPvwdmpJ3Xrqv",
+            "sd_Ejxmb0SHNZw0Txd2"
+        ],
+        "selectCatchType": "selectednodes",
+        "masternodeList": "",
+        "ignoreList": "",
+        "functionName": "sd_88zPVUZngf0ZVrhd",
+        "category": "General",
+        "x": 1325,
+        "y": 380,
+        "wires": [
+            [
+                "sd_mZ9hsExTVnqvigPA"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "books_crud"
+    },
+    {
+        "id": "sd_mZ9hsExTVnqvigPA",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh.local",
+            "value": "responseBody",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "bh.local",
+            "value": "statusCode",
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "swaggerResponse": {},
+        "responseMapping": {
+            "status": "bh.local.statusCode",
+            "obj": "bh.local.responseBody",
+            "send": "bh.local.responseBody"
+        },
+        "dataModelIsArray": false,
+        "cookies": [],
+        "inputs": 1,
+        "outputs": 0,
+        "erd": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "headers": [],
+            "produces": [],
+            "responses": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_mZ9hsExTVnqvigPA",
+        "category": "HTTP",
+        "x": 1425,
+        "y": 380,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_AKKC2ePn0psjZg5D",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "not Exist GET",
+        "script": "var notexists = bh.local.ViewResult.length==0;\n\nif (notexists) {\n       bh.local.statusCode=404;\n       let msg = \"Book Not Found\";\n    bh.local.responseBody = { error: msg };  \n        throw new Error(msg)\n} ",
+        "functionName": "notExistGet",
+        "category": "Function",
+        "x": 520,
+        "y": 1000,
+        "wires": [
+            [
+                "sd_o9kFMIEG6dSqk2mr"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    },
+    {
+        "id": "sd_oUfbLz9FwaYEN82x",
+        "type": "Catch",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "selectedNodes": [
+            "sd_AKKC2ePn0psjZg5D"
+        ],
+        "selectCatchType": "selectednodes",
+        "masternodeList": "",
+        "ignoreList": "",
+        "functionName": "sd_oUfbLz9FwaYEN82x",
+        "category": "General",
+        "x": 745,
+        "y": 1000,
+        "wires": [
+            [
+                "sd_SPVta4pANIiKPGuG"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "books_crud"
+    },
+    {
+        "id": "sd_SPVta4pANIiKPGuG",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_Wt2SpkRwJ9EL4Bsp",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh.local",
+            "value": "responseBody",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "bh.local",
+            "value": "statusCode",
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "swaggerResponse": {},
+        "responseMapping": {
+            "status": "bh.local.statusCode",
+            "obj": "bh.local.responseBody",
+            "send": "bh.local.responseBody"
+        },
+        "dataModelIsArray": false,
+        "cookies": [],
+        "inputs": 1,
+        "outputs": 0,
+        "erd": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "headers": [],
+            "produces": [],
+            "responses": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_SPVta4pANIiKPGuG",
+        "category": "HTTP",
+        "x": 860,
+        "y": 1000,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "books_crud",
+        "generated": true
+    }
+]

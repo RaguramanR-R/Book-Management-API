@@ -1,0 +1,204 @@
+[
+    {
+        "id": "SSD_SERVICE_ID_sd_HRM2k7ZBpKM0zvvj",
+        "type": "tab",
+        "createdDate": "2026-05-30T10:06:17.819Z",
+        "label": "book_helpers",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "book_helpers",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_sJ2UBLOry63wRflf",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_HRM2k7ZBpKM0zvvj",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "",
+        "path": "/book/exists",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "get",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "useDataModel": false,
+        "dataModelIsArray": false,
+        "uploadFileOptions": "",
+        "erd": "",
+        "erdName": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": []
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "validateRequestUsingSwaggerDocs": false,
+        "category": "HTTP",
+        "x": 225,
+        "y": 140,
+        "wires": [
+            [
+                "sd_badaSkDIckS6rwFZ"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "book_helpers",
+        "functionName": "sd_sJ2UBLOry63wRflf"
+    },
+    {
+        "id": "sd_badaSkDIckS6rwFZ",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_HRM2k7ZBpKM0zvvj",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "// Can be called from Child Process or directly as API\nvar isbn = bh.input.body.isbn // for Child Process call\n           || (bh.local.childInput && bh.local.childInput.isbn); // fallback\n\nbh.local.isbn = isbn;\nbh.local.checkQuery = \"SELECT id FROM book WHERE isbn = '\" + isbn + \"' LIMIT 1\";",
+        "functionName": "sd_badaSkDIckS6rwFZ",
+        "category": "Function",
+        "x": 365,
+        "y": 140,
+        "wires": [
+            [
+                "sd_7QftDqm3H63S2YbH"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "book_helpers",
+        "generated": true
+    },
+    {
+        "id": "sd_7QftDqm3H63S2YbH",
+        "type": "ExecuteSql",
+        "z": "SSD_SERVICE_ID_sd_HRM2k7ZBpKM0zvvj",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "databaseConfig": "sd_YtNA2Urg6h79jqDJ",
+        "queryType": "",
+        "resultMap": {
+            "type": "bh.local",
+            "value": "checkResult"
+        },
+        "multipleQuery": "",
+        "singleQuery": {
+            "type": "bh.local",
+            "value": "checkQuery"
+        },
+        "inputs": 1,
+        "outputs": 1,
+        "params": [],
+        "paramMappingObj": {},
+        "dbType": "mysql",
+        "functionName": "sd_7QftDqm3H63S2YbH",
+        "category": "Storage",
+        "x": 460,
+        "y": 140,
+        "wires": [
+            [
+                "sd_BL3iV4gg9x21Y0dS"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "book_helpers",
+        "generated": true
+    },
+    {
+        "id": "sd_BL3iV4gg9x21Y0dS",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_HRM2k7ZBpKM0zvvj",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "var found = bh.local.checkResult && bh.local.checkResult.length > 0;\n\n// For direct API call response\nbh.local.responseBody = { exists: found };\nbh.local.statusCode = found ? 200 : 404;\n\n// For Child Process caller\nbh.local.childOutput = { exists: found };",
+        "functionName": "sd_BL3iV4gg9x21Y0dS",
+        "category": "Function",
+        "x": 565,
+        "y": 140,
+        "wires": [
+            [
+                "sd_p6mfnjhTx3cFD6LG"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "book_helpers",
+        "generated": true
+    },
+    {
+        "id": "sd_p6mfnjhTx3cFD6LG",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_HRM2k7ZBpKM0zvvj",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh.local",
+            "value": "responseBody",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "num",
+            "value": 200,
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "swaggerResponse": {},
+        "responseMapping": {
+            "status": 200,
+            "obj": "bh.local.responseBody",
+            "send": "bh.local.responseBody"
+        },
+        "dataModelIsArray": false,
+        "cookies": [],
+        "inputs": 1,
+        "outputs": 0,
+        "erd": "",
+        "entity": "",
+        "entityId": "",
+        "ref": "",
+        "editableListData": {
+            "headers": [],
+            "produces": [],
+            "responses": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_p6mfnjhTx3cFD6LG",
+        "category": "HTTP",
+        "x": 700,
+        "y": 140,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "book_helpers",
+        "generated": true
+    }
+]

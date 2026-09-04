@@ -862,7 +862,7 @@ export default {
         //     },
         //     "__n_excludedFromValidation__": {}
         // },
-        "sd_A5Wf5D5CLXK8nNHr": {
+     /*    "sd_A5Wf5D5CLXK8nNHr": {
             "id": "sd_A5Wf5D5CLXK8nNHr",
             "type": "db-config",
             "viewType": "server",
@@ -1279,8 +1279,8 @@ export default {
                 }
             },
             "__n_excludedFromValidation__": {}
-        },
-        "sd_O3NOvqTWX5hsP6Dx": {
+        }, */
+       /*  "sd_O3NOvqTWX5hsP6Dx": {
             "id": "sd_O3NOvqTWX5hsP6Dx",
             "type": "db-config",
             "viewType": "server",
@@ -1697,6 +1697,6 @@ export default {
                 }
             },
             "__n_excludedFromValidation__": {}
-        }
+        } */
     }
 }

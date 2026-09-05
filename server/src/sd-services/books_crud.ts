@@ -431,7 +431,7 @@ export class books_crud {
       } else {
         throw new Error('Cannot find the selected config name');
       }
-      let params = undefined;
+      let params = [];
       params = params ? params : [];
       bh.local.countResult = await new GenericRDBMSOperations().executeSQL(
         connectionName,
@@ -473,7 +473,7 @@ export class books_crud {
       } else {
         throw new Error('Cannot find the selected config name');
       }
-      let params = [];
+      let params = undefined;
       params = params ? params : [];
       bh.local.books = await new GenericRDBMSOperations().executeSQL(
         connectionName,
@@ -571,7 +571,7 @@ export class books_crud {
       } else {
         throw new Error('Cannot find the selected config name');
       }
-      let params = undefined;
+      let params = [];
       params = params ? params : [];
       bh.local.result = await new GenericRDBMSOperations().executeSQL(
         connectionName,
@@ -643,7 +643,7 @@ export class books_crud {
       } else {
         throw new Error('Cannot find the selected config name');
       }
-      let params = [];
+      let params = undefined;
       params = params ? params : [];
       bh.local.Result = await new GenericRDBMSOperations().executeSQL(
         connectionName,
@@ -806,7 +806,7 @@ export class books_crud {
       } else {
         throw new Error('Cannot find the selected config name');
       }
-      let params = [];
+      let params = undefined;
       params = params ? params : [];
       bh.local.duplicate = await new GenericRDBMSOperations().executeSQL(
         connectionName,
@@ -1005,7 +1005,7 @@ export class books_crud {
       } else {
         throw new Error('Cannot find the selected config name');
       }
-      let params = [];
+      let params = undefined;
       params = params ? params : [];
       bh.local.Result = await new GenericRDBMSOperations().executeSQL(
         connectionName,
@@ -1193,7 +1193,7 @@ export class books_crud {
       } else {
         throw new Error('Cannot find the selected config name');
       }
-      let params = [];
+      let params = undefined;
       params = params ? params : [];
       bh.local.duplicate = await new GenericRDBMSOperations().executeSQL(
         connectionName,
@@ -1401,7 +1401,7 @@ export class books_crud {
       } else {
         throw new Error('Cannot find the selected config name');
       }
-      let params = [];
+      let params = undefined;
       params = params ? params : [];
       bh.local.Result = await new GenericRDBMSOperations().executeSQL(
         connectionName,
@@ -1581,7 +1581,7 @@ export class books_crud {
       } else {
         throw new Error('Cannot find the selected config name');
       }
-      let params = [];
+      let params = undefined;
       params = params ? params : [];
       bh.local.checkResult = await new GenericRDBMSOperations().executeSQL(
         connectionName,
@@ -1702,7 +1702,7 @@ export class books_crud {
       } else {
         throw new Error('Cannot find the selected config name');
       }
-      let params = [];
+      let params = undefined;
       params = params ? params : [];
       bh.local.auditResult = await new GenericRDBMSOperations().executeSQL(
         connectionName,
@@ -1822,7 +1822,7 @@ export class books_crud {
       } else {
         throw new Error('Cannot find the selected config name');
       }
-      let params = [];
+      let params = undefined;
       params = params ? params : [];
       bh.local.auditResult = await new GenericRDBMSOperations().executeSQL(
         connectionName,
@@ -2091,7 +2091,7 @@ export class books_crud {
       } else {
         throw new Error('Cannot find the selected config name');
       }
-      let params = [];
+      let params = undefined;
       params = params ? params : [];
       bh.local.ViewResult = await new GenericRDBMSOperations().executeSQL(
         connectionName,

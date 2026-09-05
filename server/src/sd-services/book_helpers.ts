@@ -170,7 +170,7 @@ export class book_helpers {
       } else {
         throw new Error('Cannot find the selected config name');
       }
-      let params = undefined;
+      let params = [];
       params = params ? params : [];
       bh.local.checkResult = await new GenericRDBMSOperations().executeSQL(
         connectionName,
